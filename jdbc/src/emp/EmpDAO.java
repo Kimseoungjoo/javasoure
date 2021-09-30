@@ -135,6 +135,7 @@ public class EmpDAO {
 		ResultSet rs = null;
 		
 		List<EmpDTO> list = new ArrayList<EmpDTO>();
+		
 		try {
 			// 커넥션 연결 작업
 			con = getConnection();
