@@ -1,0 +1,46 @@
+package test;
+
+public class ArrayTest9 {
+	public static void main(String[] args) {
+		int score[][] = { { 100, 100, 100 }, { 20, 20, 20 }, { 30, 40, 30 }, { 40, 50, 20 }, { 50, 60, 50 } };
+		// .length = 행의 개수
+		int result[][] = new int[score.length + 1][score[0].length + 1];// 이렇게 해!!(why? 프로그램이 변환했을 때 편하기때문)
+
+		// score 값을 result 옮기기
+		// 합계를 구해서 값을 추가
+		// result 값 출력
+		System.arraycopy(score, 0, result, 0, score.length);
+		
+		for (int i = 0; i < result.length; i++) {
+			for (int j = 0; j < result[i].length; j++) {
+				System.out.printf("%5d", result[i][j]);
+			}
+			System.out.println();
+		}
+		for (int i = 0; i < score.length; i++) {
+			for (int j = 0; j < score[i].length; j++) {
+				// 값옮기기
+				result[i][j] = score[i][j];
+				// 행합계
+				// result[0].length > 4
+				result[i][result[i].length - 1] += result[i][j];
+//				전체합계
+				result[5][3] += score[i][j];
+			}
+			//열합계
+			result[result.length-1][0]+=result[i][0];
+			result[result.length-1][1]+=result[i][1];
+			result[result.length-1][2]+=result[i][2];
+			
+			
+		}
+//화면
+		for (int i = 0; i < result.length; i++) {
+			for (int j = 0; j < result[i].length; j++) {
+				System.out.printf("%5d", result[i][j]);
+			}
+			System.out.println();
+		}
+		
+	}
+}

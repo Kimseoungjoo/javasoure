@@ -1,0 +1,23 @@
+package abstractTest;
+/* 추상 클래스 :
+ * 추상 : 구체적인 내용은 배제하고 공통된 부분만을 만들어 주는 작업 
+ * 
+ */
+public abstract class Car {
+	
+	private String color;
+	
+		
+	public Car(String color) {
+		super();
+		this.color = color;
+	}
+
+	public void start() {
+		System.out.println("자동차 출발");
+	}
+	
+	abstract void drive();  // 자식 클래스에서 반드시 구현해야한다 . 
+	abstract void stop(); 
+	
+}
