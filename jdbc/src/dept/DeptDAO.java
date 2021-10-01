@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.prefs.InvalidPreferencesFormatException;
 
 import jdbc.Connect;
 
@@ -162,6 +163,34 @@ public class DeptDAO {
 		}
 		return updateFlag;
 		
+	}
+	// delete from dept_temp where deptno = ?
+	// delete()
+	public boolean delete(int deptNo) {
+		boolean flag = false;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = getConnection();
+			String sql = "delete from dept_temp where deptno = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, deptNo);
+			int result = pstmt.executeUpdate();
+			if(result > 0) {
+				flag = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				con.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return flag;
 	}
 	
 }
