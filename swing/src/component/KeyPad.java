@@ -1,0 +1,128 @@
+package component;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
+public class KeyPad extends JFrame implements ActionListener{
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JButton[] btn = new JButton[9]; 
+//	private String sum="";
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					KeyPad frame = new KeyPad();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public KeyPad() {
+		setTitle("KeyPad");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.NORTH);
+		
+		textField = new JTextField();
+		panel.add(textField);
+		textField.setColumns(42);
+		
+		JPanel panel_1 = new JPanel();
+		contentPane.add(panel_1, BorderLayout.CENTER);
+		panel_1.setLayout(new GridLayout(0, 3, 5, 5));
+		
+		// 패널에 버튼 9개 부착
+		for(int i = 0; i<btn.length; i++) {
+			btn[i] = new JButton((i+1)+"");
+			// 버튼 font 변경 
+			btn[i].setFont(new Font("굴림",Font.PLAIN,24));
+			btn[i].setActionCommand((i+1)+"");
+			btn[i].addActionListener(this);
+			panel_1.add(btn[i]);
+		}
+		
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// 버튼이 클릭되면
+		// 눌려진 버튼의 숫자를 가져오면 된다.
+		String cmd  = e.getActionCommand();
+		
+
+		// 가져온 숫자를 textFeild에 보여주기
+		textField.setText(textField.getText()+cmd);
+//		switch (cmd) {
+//		case "1":
+//			sum += cmd;
+//			textField.setText(sum);
+//			break;
+//		case "2" :
+//			sum += cmd;
+//			textField.setText(sum);
+//		break;
+//		case "3":
+//			sum += cmd;
+//			textField.setText(sum);
+//		break;
+//		case "4":
+//			sum += cmd;
+//			textField.setText(sum);
+//		break;
+//		case "5":
+//			sum += cmd;
+//			textField.setText(sum);
+//		break;
+//		case "6":
+//			sum += cmd;
+//			textField.setText(sum);
+//		break;
+//		case "7":
+//			sum += cmd;
+//			textField.setText(sum);
+//		break;
+//		case "8":
+//			sum += cmd;
+//			textField.setText(sum);
+//		break;
+//		case "9":
+//			sum += cmd;
+//			textField.setText(sum);
+//		break;
+//		default:
+//			break;
+//		}
+	}
+
+}

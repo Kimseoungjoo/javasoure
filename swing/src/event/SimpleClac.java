@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -87,7 +88,10 @@ public class SimpleClac extends JFrame implements ActionListener {
 				result.setText(String.valueOf(total));
 				
 			} catch (Exception e2) {
-				System.out.println("입력값을 주세요");
+				// 개발할 때 예외 발생 단계를 출력
+				// e.printStackTrace();
+				JOptionPane.showMessageDialog(getParent(), "입력값을 확인해주세요");
+				//System.out.println("입력값을 주세요");
 			}
 
 		} else {
