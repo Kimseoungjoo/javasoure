@@ -6,5 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/eclipse-jee-2021-06-R-win32-x86_64/eclipse/lombok.jar"/>
+	<classpathentry kind="lib" path="C:/sqldriver/ojdbc8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
