@@ -57,6 +57,7 @@ public class JTableTest2 extends JFrame implements ActionListener{
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		
 		table = new JTable();
+		table.setBorder(null);
 		String columnNames[] = {"이름","나이","성별"};
 		model = new DefaultTableModel(columnNames,0);
 		table.setModel(model);

@@ -35,10 +35,14 @@ public class MouseEventTest3 extends JFrame {
 //		contentPane.requestFocus();
 		
 		setSize(200,200);
+		View();
+	}
+	public void View() {
 		setVisible(true);
 	}
 	public static void main(String[] args) {
 		new MouseEventTest3();
+	    
 	}
 	class MyMouseAdapter extends MouseAdapter{
 
